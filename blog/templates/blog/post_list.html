@@ -6,32 +6,15 @@
   </head>
   <body>
     <div>
-      <h1><strong>¡Hola! este es el blog de Fernanda Reyes Bolio</strong><h1/>
-      <p>¿Cómo están?</p>
-      <p>Mi blog se trata de bla bla bla bla</p>
+        <h1><a href="/">Django Girls Blog</a></h1>
     </div>
-    <br/>
-    <img src="http://builtbybuffalo.com/assets/img/logo-plain@2x.png"/>
-    <br/>
-
-    <div>
-      <p>published: 14.06.2014, 12:14</p>
-      <h2><a href="">Mi Primer Post<a/></h2>
-      <p>El primer día en Django</p>
-    </div>
-    <br/>
-
-    <div>
-      <p>published: 14.06.2014, 12:14</p>
-      <h2><a href="">Mi Segundo Post<a/></h2>
-      <p>ba bla bla</p>
-    </div>
-    <br/>
-
-    <div>
-      <p>published: 14.06.2014, 12:14</p>
-      <h2><a href="">Mi Tercer Post<a/></h2>
-      <p>ba bla bla</p>
-    </div>
+{{posts}}
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaks }}</p>
+        </div>
+    {% endfor %}
   </body>
 </html>
